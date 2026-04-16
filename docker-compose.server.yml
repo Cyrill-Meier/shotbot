@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     env_file:
       - ./bot.env
+    # bot.env should contain BOT_TOKEN, TELEGRAM_ADMIN_ID, and optionally MIN_PLAYERS
     labels:
       - "com.centurylinklabs.watchtower.scope=shotbot"
     environment:
