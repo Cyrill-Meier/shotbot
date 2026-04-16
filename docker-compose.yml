@@ -1,0 +1,7 @@
+services:
+  shotbot:
+    build: .
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - MIN_PLAYERS=${MIN_PLAYERS:-3}
