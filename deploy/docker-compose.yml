@@ -1,0 +1,24 @@
+services:
+  shotbot:
+    image: ghcr.io/cyrill-meier/shotbot:latest
+    container_name: shotbot
+    restart: unless-stopped
+    env_file:
+      - ./bot.env
+    labels:
+      - "com.centurylinklabs.watchtower.scope=shotbot"
+    environment:
+      - TZ=Europe/Zurich
+      - PYTHONUNBUFFERED=1
+
+  watchtower:
+    image: nickfedor/watchtower:latest
+    container_name: watchtower-shotbot
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --scope shotbot --interval 300 --cleanup
+    labels:
+      - "com.centurylinklabs.watchtower.scope=shotbot"
+    environment:
+      - TZ=Europe/Zurich
