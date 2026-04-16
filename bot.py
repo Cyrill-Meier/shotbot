@@ -47,14 +47,13 @@ def _name(user) -> str:
 # ---------------------------------------------------------------------------
 async def start(update: Update, ctx: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_text(
-        "🥃 *Welcome to ShotBot!*\n\n"
-        "Gather your friends and let the bot decide who drinks next\\.\n\n"
+        "🥃 Welcome to ShotBot!\n\n"
+        "Gather your friends and let the bot decide who drinks next.\n\n"
         "• /join — hop in\n"
         "• /leave — hop out\n"
         "• /players — see who's playing\n"
-        "• /spin — pick a drinker \\(min\\. 3 players\\)\n"
-        "• /reset — clear the round\n",
-        parse_mode="MarkdownV2",
+        "• /spin — pick a drinker (min. 3 players)\n"
+        "• /reset — clear the round",
     )
 
 
